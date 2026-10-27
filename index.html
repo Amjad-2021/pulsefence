@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PulseFence References</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow reading column for phones scanning a poster QR; SAIF green + terracotta */
+:root {
+  --bg: #f4f4ea; --surface: #ffffff; --fg: #1f2a28; --muted: #55625f;
+  --ink: #143d37; --accent: #c95d4f; --line: #dfe0d4;
+  --sans: 'IBM Plex Sans Arabic', 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111916; --surface: #18221f; --fg: #e6ebe7; --muted: #a2b0ab;
+  --ink: #8fd0c1; --accent: #e88a7d; --line: #2b3834; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111916; --surface: #18221f; --fg: #e6ebe7; --muted: #a2b0ab;
+  --ink: #8fd0c1; --accent: #e88a7d; --line: #2b3834; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.55;
+  padding-left: 16px; padding-right: 16px; margin: 0; padding-block: 28px 48px; }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+header { display: flex; flex-direction: column; gap: 6px; border-bottom: 3px solid var(--accent); padding-bottom: 18px; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+h1 { margin: 0; font-size: 34px; line-height: 1.1; color: var(--ink); text-wrap: balance; }
+.sub { margin: 0; color: var(--muted); }
+.ar { direction: rtl; text-align: right; color: var(--muted); margin: 0; }
+h2 { margin: 0 0 12px; font-size: 22px; color: var(--ink); text-wrap: balance; }
+section { display: flex; flex-direction: column; }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.steps li { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; display: grid; grid-template-columns: 2.2em minmax(0, 1fr); gap: 4px 10px; }
+.steps .n { font-weight: 700; color: var(--accent); font-size: 20px; line-height: 1.3; }
+.steps b { color: var(--ink); }
+.steps p { margin: 0; grid-column: 2; color: var(--muted); font-size: 15px; }
+ol.refs { margin: 0; padding-left: 1.6em; display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+ol.refs li::marker { color: var(--accent); font-weight: 600; }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--ink); border: 1px solid var(--line); padding: 0 6px; margin-left: 4px; vertical-align: 1px; }
+.links { display: flex; flex-direction: column; gap: 10px; }
+.links a { display: block; background: var(--surface); border: 1px solid var(--line); padding: 12px 16px; color: var(--ink); text-decoration: none; font-weight: 600; }
+.links a span { display: block; font-weight: 400; color: var(--muted); font-size: 14px; }
+.links a:hover, .links a:focus-visible { border-color: var(--accent); outline: none; }
+footer { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="eyebrow">SAIF 2026 · Supporting material</div>
+  <h1>PulseFence</h1>
+  <p class="sub">A low-cost intelligent system for protecting smart-city networks against spoofed wireless signals</p>
+  <p class="ar">نظام ذكي منخفض التكلفة لحماية شبكات المدن الذكية من الإشارات اللاسلكية المزيفة</p>
+</header>
+
+<section aria-labelledby="fw">
+  <h2 id="fw">Future vision</h2>
+  <ul class="steps">
+    <li><span class="n">1</span><b>Validate replay detection on real hardware</b>
+      <p>Record replays of our own sensors with low-cost software radios (RTL-SDR, HackRF) and test PulseNet on them. The public WiSig data has no replays, so today replay detection is shown in simulation and impostor detection on real data.</p></li>
+    <li><span class="n">2</span><b>Run on a low-cost edge node</b>
+      <p>Deploy the ~20 KB model on a Raspberry Pi with 4 receivers, add the location check, and raise single-node detection (74% today) by sharing evidence between neighbouring nodes.</p></li>
+    <li><span class="n">3</span><b>Scale to a whole city</b>
+      <p>Test with 150 devices (WiSig ManyTx), counter close lab-grade attackers with angle-of-arrival antennas, and share learning between districts with federated learning.</p></li>
+  </ul>
+</section>
+
+<section aria-labelledby="refs">
+  <h2 id="refs">References</h2>
+  <ol class="refs">
+    <li>I. A. Jayaraj, B. Shanmugam, S. Azam, S. Thennadil, “Detecting and Localizing Wireless Spoofing Attacks on the Internet of Medical Things,” <i>J. Sensor and Actuator Networks</i>, 13(6):72, 2024. <span class="tag">on poster [1]</span></li>
+    <li>X. Cao, B. Adhikari et al., “An Adversarial-Driven Experimental Study on Deep Learning for RF Fingerprinting,” <i>IEEE MILCOM</i>, 2025 (arXiv:2507.14109). <span class="tag">on poster [2]</span></li>
+    <li>S. Hanna, S. Karunaratne, D. Cabric, “WiSig: A Large-Scale WiFi Signal Dataset for Receiver and Channel Agnostic RF Fingerprinting,” <i>IEEE Access</i>, vol. 10, 2022. <span class="tag">on poster [3]</span></li>
+    <li>K. Sankhe et al., “ORACLE: Optimized Radio clAssification through Convolutional neuraL nEtworks,” <i>IEEE INFOCOM</i>, 2019. <span class="tag">on poster [4]</span></li>
+    <li>A. M. Hussain, N. Abughanam, P. Papadimitratos, “Edge AI-based Radio Frequency Fingerprinting for IoT Networks,” arXiv:2412.10553, 2024. <span class="tag">on poster [5]</span></li>
+    <li>R. Dhakal, P. Shekhar, L. Niure Kandel, “Adversarial-Resilient RF Fingerprinting: A CNN-GAN Framework for Rogue Transmitter Detection,” arXiv:2510.09663, 2025. <span class="tag">on poster [6]</span></li>
+    <li>A. Jagannath, J. Jagannath, P. Kumar, “A Comprehensive Survey on RF Fingerprinting: Traditional Approaches, Deep Learning, and Open Challenges,” arXiv:2201.00680, 2022.</li>
+    <li>Y. Chen, J. Yang, W. Trappe, R. P. Martin, “Detecting and Localizing Identity-Based Attacks in Wireless and Sensor Networks,” <i>IEEE Trans. Vehicular Technology</i>, 59(5), 2010.</li>
+    <li>T. Zhao, X. Wang, S. Mao, “Cross-domain, Scalable, and Interpretable RF Device Fingerprinting,” <i>IEEE INFOCOM</i>, 2024.</li>
+    <li>S. Mackey, T. Zhao, X. Wang, S. Mao, “Cross-Domain Adaptation for RF Fingerprinting Using Prototypical Networks,” <i>ACM SenSys</i> (poster), 2022.</li>
+    <li>S. Karunaratne, E. Krijestorac, D. Cabric, “Penetrating RF Fingerprinting-based Authentication with a Generative Adversarial Attack,” arXiv:2011.01538, 2020.</li>
+    <li>Y. Xu, M. Liu, L. Peng, J. Zhang, Y. Zheng, “Colluding RF Fingerprint Impersonation Attack Based on Generative Adversarial Network,” <i>IEEE ICC</i>, 2022.</li>
+    <li>H. Albousayri, B. Hamdaoui, “Replicating the Signature: Unsupervised Targeted Impersonation Attack on RF Fingerprinting,” arXiv:2607.05549, 2026.</li>
+    <li>T. Zhao, N. Wang, J. Zhang, X. Wang, “Protocol-agnostic and Data-free Backdoor Attacks on Pre-trained Models in RF Fingerprinting,” arXiv:2505.00881, 2025.</li>
+    <li>N. Badini et al., “SecureRF-Net: RF Device Classification and Unauthorized Transmitter Detection for Model-Identical Radios,” <i>ITASEC &amp; SERICS</i>, CEUR-WS vol. 4198, 2026.</li>
+    <li>M. Delcourt, J.-Y. Le Boudec, “TDOA Source-Localization Technique Robust to Timing Attacks,” arXiv:1912.04630, 2019.</li>
+  </ol>
+</section>
+
+<section aria-labelledby="files">
+  <h2 id="files">Code and data</h2>
+  <div class="links">
+    <a href="https://colab.research.google.com/drive/1Yh57ZOHds2gVJEwqeJKaRIszAfGTD0SS?usp=sharing" target="_blank" rel="noopener">PulseNet notebook on Google Colab<span>Training and testing on real WiFi data, with all result figures</span></a>
+    <a href="https://cores.ee.ucla.edu/downloads/datasets/wisig/" target="_blank" rel="noopener">WiSig dataset (UCLA)<span>The public real-WiFi dataset used in our tests [3]</span></a>
+  </div>
+</section>
+
+<footer>Bisan Omar Alruwaili · Toleen Omar Alruwaili — Supervisor: Amjad Alsirhani. Supported by the General Administration of Education in Al-Jawf Region, Jouf University and Amad Al-Fikr Educational Association.</footer>
+</main>
+</body>
+</html>
